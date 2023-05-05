@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState, useEffect } from 'react';
 import car from "../assets/portfolio/carrental.jpg";
 import game1 from "../assets/portfolio/game1.jpeg";
 import game2 from "../assets/portfolio/game2.jpeg";
@@ -8,6 +9,24 @@ import roca from "../assets/portfolio/rocacompany.jpg";
 import minipoly from "../assets/portfolio/monopoly.jpg";
 
 function Portfolio() {
+
+  const [showAnimation, setShowAnimation] = useState(false);
+
+  useEffect(() => {
+    function handleScroll() {
+      const windowHeight = window.innerHeight;
+      const elementPosition = document.getElementById('title-box1').getBoundingClientRect().top;
+      const scrollPosition = window.scrollY;
+
+      if (elementPosition - windowHeight <= scrollPosition) {
+        setShowAnimation(true);
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
 
   const portfolios = [
     {
@@ -47,6 +66,9 @@ function Portfolio() {
     {
       id: 6,
       src: game2,
+      link: 'https://rezwanatechprofile.github.io/tamagotchi/',
+      description: 'My first attempt to develop a Tamagotchi game using JavaScript. User will be able to Feed, play and have fun with panda. If user hit 100% of Hunger, boredom or sleepiness, panda will die. If user hit the highest level of fun and energy, panda will win the game. If panda hits 10 years of his age, then he become adult to have partner.',
+      gitLink: 'https://github.com/rezwanatechProfile/tamagotchi'
     },
   ];
 
@@ -54,33 +76,63 @@ function Portfolio() {
   return (
     <div
       name="portfolio"
-      className="bg-gradient-to-b from-red-950 via-gray-900 to-black w-full text-white"
+      className="bg-gradient-to-b from-red-950 via-gray-900 to-black w-full text-white padding-t-200 padding-b-100"
     >
-      <div className="max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full h-full">
-        <div className="pb-8">
-          <p className="text-2xl font-bold inline">
-            Projects I have developed until now.
-          </p>
+      <div className="max-w-screen-lg mx-auto px-10 flex flex-col justify-center w-full h-full">
+        {/* <div className="font-bold p-2 inline title-box">
+          <h1 className="sm:text-5xl font-bold text-white">
+            PROJECTS
+          </h1>
+        </div> */}
+         <div id="title-box1" className={showAnimation ? "title-box" : " "}>
+          <h1 className="text-4xl sm:text-5xl font-bold inline">PROJECTS</h1>
+        </div>
+        <div className="gradient-border p-10 mb-5">
+          <div className="text-center">
+            <h3 className="text-2xl p-2 inline">What I have created.</h3>
+          </div>
+
+          <div className="text-left">
+            <p className="py-6">
+              A showcase of some of the web applications I have developed as a full stack developer. Each project displayed here showcases my expertise in various front-end and back-end technologies, including but not limited to HTML, CSS, JavaScript, React, Node.js, Python, and MongoDB. 
+            </p>
+          </div>
         </div>
 
-        <div className="grid sm:grid-cols-2 md:grid-cols-2 gap-8 px-12 sm:px-0">
+        <div className="grid sm:grid-cols-2 md:grid-cols-2 gap-5 px-12 sm:px-0">
           {portfolios.map(({ id, src, link, description, gitLink }) => (
-            <div key={id} className="bg-white shadow-md shadow-gray-600 rounded-lg">
+            <div
+              key={id}
+              className="text-white shadow-md shadow-gray-600 rounded-lg"
+            >
               <img
                 src={src}
                 alt=""
                 className="rounded-md duration-200 hover:scale-105"
               />
-              <p className='p-5 text-black'>{description}</p>
-               
-              
+              <p className="p-5">{description}</p>
+
               <div className="flex items-end justify-center bottom-[0%]">
-               <button className="w-1/2 px-6 pb-10 duration-200 hover:scale-105">
-                  <a href={link} target="_blank" rel="noreferrer" className='text-yellow-500'>View Project</a>
+                <button className="w-1/2 px-6 pb-5 duration-200 hover:scale-105">
+                  <a
+                    href={link}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-yellow-500"
+                  >
+                    View Project
+                  </a>
                 </button>
-                
-                <button className="w-1/2 px-6 pb-10 duration-200 hover:scale-105">
-                  <a href={gitLink} target="_blank" rel="noreferrer" className='text-yellow-500'>Code</a>
+
+                <button className="w-1/2 px-6 pb-5 duration-200 hover:scale-105">
+                  <a
+                    href={gitLink}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-yellow-500"
+                  >
+                    View Code
+                  </a>
                 </button>
               </div>
             </div>
@@ -88,7 +140,7 @@ function Portfolio() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default Portfolio

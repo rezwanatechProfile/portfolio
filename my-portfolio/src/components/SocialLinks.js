@@ -2,6 +2,7 @@ import React from 'react'
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 import { BsFillPersonLinesFill } from "react-icons/bs";
+import file from '../assets/resume.docx';
 
 
 function SocialLink() {
@@ -43,16 +44,15 @@ function SocialLink() {
           Resume <BsFillPersonLinesFill size={30} />
         </>
       ),
-      href: "/resume.pdf",
+      href: file,
       style: "rounded-br-md",
-      download: true,
+      download: 'resume.docx'
     },
   ];
 
 
-
   return (
-    <div className='hidden lg:flex bottom-[0%] left-0 fixed'>
+    <div className='hidden lg:flex bottom-[0%] left-0 fixed hide-menu'>
       <ul>
         {links.map(({ id, child, href, style, download }) => (
           <li
