@@ -1,6 +1,25 @@
 import React from 'react'
+import { useState, useEffect } from 'react';
 
 function Contact() {
+
+  const [showAnimation, setShowAnimation] = useState(false);
+
+  useEffect(() => {
+    function handleScroll() {
+      const windowHeight = window.innerHeight;
+      const elementPosition = document.getElementById('title-box4').getBoundingClientRect().top;
+      const scrollPosition = window.scrollY;
+
+      if (elementPosition - windowHeight <= scrollPosition) {
+        setShowAnimation(true);
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <div
       name="contact"
@@ -8,11 +27,12 @@ function Contact() {
     >
       <div className="pb-10 h-full px-10">
       <div className="flex flex-col items-start max-w-screen-lg mx-auto">
-        <div className="title-box2">
+
+        <div id="title-box4" className={showAnimation ? "title-box4" : " "}>
           <h1 className="text-4xl sm:text-5xl font-bold inline">CONTACT ME</h1>
         </div>
       </div>
-      <div className="flex flex-col justify-space-between max-w-screen-lg mx-auto md:flex-row">
+      <div className="flex flex-col max-w-screen-lg mx-auto md:flex-row">
         <div className="mr-5">
           <div className="gradient-border p-10 mb-5">
             <div className="text-left">

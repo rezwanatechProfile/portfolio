@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState, useEffect } from 'react';
 
 import html from "../assets/html.png";
 import css from "../assets/css.png";
@@ -11,6 +12,23 @@ import MongoDB from "../assets/mongo.png";
 import python from "../assets/python.png";
 
 const Experience = () => {
+  const [showAnimation, setShowAnimation] = useState(false);
+
+  useEffect(() => {
+    function handleScroll() {
+      const windowHeight = window.innerHeight;
+      const elementPosition = document.getElementById('title-box2').getBoundingClientRect().top;
+      const scrollPosition = window.scrollY;
+
+      if (elementPosition - windowHeight <= scrollPosition) {
+        setShowAnimation(true);
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const techs = [
     {
       id: 1,
@@ -74,10 +92,8 @@ const Experience = () => {
       className="bg-gradient-to-b from-black to-red-950 w-full padding-t-200 padding-b-100"
     >
       <div className="max-w-screen-lg px-10 mx-auto flex flex-col justify-center w-full h-full text-white">
-        <div className="font-bold p-2 inline title-box margin-100">
-          <h1 className="text-4xl sm:text-5xl font-bold text-white">
-            MY SKILLS
-          </h1>
+      <div id="title-box2" className={showAnimation ? "title-box2" : " "}>
+          <h1 className="text-4xl sm:text-5xl font-bold inline">MY SKILLS</h1>
         </div>
 
         <div className='gradient-border p-10 text-center'>

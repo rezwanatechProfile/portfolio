@@ -1,5 +1,5 @@
 
-/* @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
@@ -29,7 +29,7 @@ h1 {
 }
 
 
-.title-box {
+.title-box1 {
   background: linear-gradient(to right, #22d3ee, #059669, #fcd34d, #0247c7);
   max-width: 60%;
   padding: 20px;
@@ -42,6 +42,31 @@ h1 {
 }
 
 .title-box2 {
+  background: linear-gradient(to right, #22d3ee, #059669, #fcd34d, #0247c7);
+  max-width: 60%;
+  padding: 20px;
+  margin-bottom: -2%;
+  z-index: 4;
+  margin-left: -2%;
+  transform: translateX(-200%);
+	opacity: 0;
+	animation: slide-in-anim 1s ease-out forwards;
+}
+
+.title-box3 {
+  background: linear-gradient(to right, #22d3ee, #059669, #fcd34d, #0247c7);
+  max-width: 60%;
+  padding: 20px;
+  margin-bottom: -2%;
+  z-index: 4;
+  margin-left: -2%;
+  transform: translateX(-200%);
+	opacity: 0;
+	animation: slide-in-anim 1s ease-out forwards;
+}
+
+
+.title-box4 {
   background: linear-gradient(to right, #22d3ee, #059669, #fcd34d, #0247c7);
   padding: 20px;
   margin-bottom: -2%;
@@ -74,6 +99,7 @@ h1 {
   border-width: 3px;
   border-image-source: linear-gradient(to right, #22d3ee, #059669, #fcd34d, #0247c7);
   background-color: #222;
+  font-family: "Arial", sans-serif;
 }
 
 .box {
@@ -304,6 +330,15 @@ h1 {
 .form-box {
   width: 500px;
 }
+
+.firstDiv {
+  width: 50%;
+}
+
+.secondDiv {
+  width: 100%;
+}
+
 
 @media only screen and (max-width: 950px){
   .form-box {

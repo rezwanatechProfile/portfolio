@@ -1,7 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import car from "../assets/portfolio/carrental.jpg";
-import game1 from "../assets/portfolio/game1.jpeg";
 import game2 from "../assets/portfolio/game2.jpeg";
 import planter from "../assets/portfolio/planterER.jpg";
 import project1 from "../assets/portfolio/moviedata.jpg";
@@ -84,7 +83,7 @@ function Portfolio() {
             PROJECTS
           </h1>
         </div> */}
-         <div id="title-box1" className={showAnimation ? "title-box" : " "}>
+         <div id="title-box1" className={showAnimation ? "title-box1" : " "}>
           <h1 className="text-4xl sm:text-5xl font-bold inline">PROJECTS</h1>
         </div>
         <div className="gradient-border p-10 mb-5">
