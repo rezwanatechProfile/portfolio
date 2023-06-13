@@ -38,7 +38,7 @@ function Portfolio() {
     {
       id: 2,
       src: planter,
-      link: 'https://planterandplanters.herokuapp.com/',
+      link: 'https://plant-er.herokuapp.com/',
       description: 'Plant(ER) is a web app designed to help plant owners take care of their plants. Also this app is a great knowledge base to learn more about different plant species. It was a team project in which I contributed to the wire-framing, backend and also in frontend design.',
       gitLink:'https://github.com/taariqelliott/project-3-planter'
     },
